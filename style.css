@@ -1,0 +1,321 @@
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 0.5s ease;
+            overflow: hidden;
+        }
+        
+        /* Day theme */
+        body.day-mode {
+            background-color: #f0f2f5;
+            color: #333;
+        }
+        
+        /* Night theme */
+        body.night-mode {
+            background-color: #121212;
+            color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 500px;
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        .clock-card {
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            transform: scale(0.95);
+            animation: cardEntrance 0.8s ease-out forwards;
+        }
+        
+        /* Day theme card */
+        body.day-mode .clock-card {
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Night theme card */
+        body.night-mode .clock-card {
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        
+        @keyframes cardEntrance {
+            to { transform: scale(1); }
+        }
+        
+        .clock-header {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-weight: 700;
+            font-size: 1.4rem;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .theme-switcher {
+            background: rgba(0, 0, 0, 0.05);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        body.day-mode .theme-switcher {
+            background: rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+        
+        body.night-mode .theme-switcher {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+        
+        .theme-switcher:hover {
+            transform: rotate(30deg);
+        }
+        
+        .time-display {
+            font-size: 4.5rem;
+            font-weight: 700;
+            margin: 20px 0;
+            letter-spacing: 2px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+        
+        .time-part {
+            border-radius: 15px;
+            padding: 5px 20px;
+            margin: 10 5px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Day theme time */
+        body.day-mode .time-part {
+            background: rgba(0, 0, 0, 0.03);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Night theme time */
+        body.night-mode .time-part {
+            background: rgba(255, 255, 255, 0.05);
+            animation: digitPulse 1.5s infinite alternate;
+        }
+        
+        @keyframes digitPulse {
+            0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); }
+            100% { box-shadow: 0 0 20px rgba(100, 200, 255, 0.3); }
+        }
+        
+        .time-separator {
+            animation: blink 1.5s infinite;
+            opacity: 0.7;
+            margin: 0 5px;
+        }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+        
+        .ampm {
+            font-size: 1.5rem;
+            margin-left: 10px;
+            align-self: flex-end;
+            padding-bottom: 15px;
+            opacity: 0.8;
+        }
+        
+        .date-display {
+            font-size: 1.4rem;
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .date-part {
+            padding: 8px 15px;
+            border-radius: 10px;
+        }
+        
+        /* Day theme date */
+        body.day-mode .date-part {
+            background: rgba(0, 0, 0, 0.03);
+        }
+        
+        /* Night theme date */
+        body.night-mode .date-part {
+            background: rgba(255, 255, 255, 0.05);
+        }
+        
+        .timezone-display {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.8;
+        }
+        
+        .controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Day theme buttons */
+        body.day-mode .btn {
+            background: rgba(0, 0, 0, 0.05);
+            color: #333;
+        }
+        
+        body.day-mode .btn:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Night theme buttons */
+        body.night-mode .btn {
+            background: rgba(255, 255, 255, 0.1);
+            color: #f5f5f5;
+        }
+        
+        body.night-mode .btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        .btn i {
+            font-size: 1.1rem;
+        }
+        
+        .format-toggle {
+            border-radius: 50px;
+            padding: 5px;
+            display: flex;
+            margin: 0 auto;
+            width: fit-content;
+        }
+        
+        /* Day theme toggle */
+        body.day-mode .format-toggle {
+            background: rgba(0, 0, 0, 0.05);
+        }
+        
+        /* Night theme toggle */
+        body.night-mode .format-toggle {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .format-btn {
+            padding: 8px 20px;
+            border: none;
+            background: transparent;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        /* Day theme format buttons */
+        body.day-mode .format-btn {
+            color: rgba(0, 0, 0, 0.7);
+        }
+        
+        body.day-mode .format-btn.active {
+            background: rgba(0, 0, 0, 0.1);
+            color: #000;
+        }
+        
+        /* Night theme format buttons */
+        body.night-mode .format-btn {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        body.night-mode .format-btn.active {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+        
+        /* Animation for digits */
+        .digit-change {
+            animation: digitChange 0.5s ease-out;
+        }
+        
+        @keyframes digitChange {
+            0% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(-20px); opacity: 0; }
+            51% { transform: translateY(20px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .time-display { font-size: 3.5rem; }
+            .date-display { font-size: 1.2rem; }
+        }
+        
+        @media (max-width: 400px) {
+            .time-display { font-size: 2.8rem; }
+            .time-part { padding: 5px 15px; }
+            .date-display { font-size: 1rem; gap: 5px; }
+            .date-part { padding: 5px 10px; }
+            .btn { padding: 10px 20px; font-size: 0.9rem; }
+        }
+  
