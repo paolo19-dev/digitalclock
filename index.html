@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Digital Clock</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+</head>
+<body class="night-mode">
+    <div class="container">
+        <div class="clock-card">
+            <div class="clock-header">
+                
+                <button class="theme-switcher" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            
+           <div class="date-display" id="dateDisplay">
+                <div class="date-part" id="day">Monday</div>
+                <div class="date-part" id="date">01 Jan</div>
+                <div class="date-part" id="year">2023</div>
+            </div>
+          
+            <div class="time-display" id="timeDisplay">
+                <div class="time-part" id="hours">00</div>
+                <div class="time-separator">:</div>
+                <div class="time-part" id="minutes">00</div>
+                <div class="time-separator">:</div>
+                <div class="time-part" id="seconds">00</div>
+                <div class="ampm" id="ampm">AM</div>
+            </div>
+            
+           
+            
+            <div class="timezone-display">
+                <i class="fas fa-globe"></i>
+                <span id="timezone">Loading timezone...</span>
+            </div>
+            
+            <div class="format-toggle">
+                <button class="format-btn active" id="format12">12-Hour</button>
+                <button class="format-btn" id="format24">24-Hour</button>
+            </div>
+            
+            <div class="controls">
+                <button class="btn" id="pauseBtn">
+                    <i class="fas fa-pause"></i> Pause
+                </button>
+                <button class="btn" id="alarmBtn">
+                    <i class="fas fa-bell"></i> Set Alarm
+                </button>
+            </div>
+            
+            <div class="footer">
+                Created from boarettoDesign &copy; 2017
+            </div>
+        </div>
+    </div>
+
+ 
+</body>
+</html>
